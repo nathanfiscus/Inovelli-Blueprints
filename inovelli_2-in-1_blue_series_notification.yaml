@@ -14,11 +14,11 @@ blueprint:
           model: VZM31-SN
     LEDEffectType:
       name: LED Effect Type
-      description: "0: Off, 1: Solid, 2: Chase, 3: Fast Blink, 4: Slow Blink, 5: Pulse, 6: Open/Close, 7: Small to Big"
+      description: "0: Off, 1: Solid, 2: Fast Blink, 3: Slow Blink, 4: Pulse, 5: Chase, 6: Open/Close, 7: Small to Big, 255: Clear"
       selector:
         number:
           min: 0
-          max: 7
+          max: 255
     LEDEffectColor:
       name: LED Effect Color
       description: "0:-254: Hue based on Color Wheel, 255: White"
@@ -35,7 +35,7 @@ blueprint:
           max: 100
     LEDEffectDuration:
       name: LED Effect Duration
-      description: "1-60: Duration in seconds, 61-120: Duration in Minutes (minus 60), 120-254: Duration in Hours (minus 120), 255: Indefinite Duration"
+      description: "1-60: Duration in seconds, 61-120: Duration in minutes (minus 60), 120-254: Duration in hours (minus 120), 255: Indefinite duration"
       selector:
         number:
           min: 0
