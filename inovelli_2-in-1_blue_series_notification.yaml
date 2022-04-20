@@ -1,0 +1,61 @@
+blueprint:
+  name: Inovelli 2-in-1 Blue Series Notification
+  description: >-
+    A script that sends an LED bar notification to an Inovelli 2-in-1 Blue Series device.
+  domain: script
+  input:
+    notification_device:
+      name: Device
+      description: Device to send the notification to.
+      selector:
+        device:
+          integration: zha
+          manufacturer: Inovelli
+          model: VZM31-SN
+    LEDEffectType:
+      name: LED Effect Type
+      description: "0: Off, 1: Solid, 2: Chase, 3: Fast Blink, 4: Slow Blink, 5: Pulse, 6: Open/Close, 7: Small to Big"
+      selector:
+        number:
+          min: 0
+          max: 7
+    LEDEffectColor:
+      name: LED Effect Color
+      description: "0:-254: Hue based on Color Wheel, 255: White"
+      selector:
+        number:
+          min: 0
+          max: 255
+    LEDEffectLevel:
+      name: LED Effect Level
+      description: "0-100% Brightness Level"
+      selector:
+        number:
+          min: 0
+          max: 100
+    LEDEffectDuration:
+      name: LED Effect Duration
+      description: "1-60: Duration in seconds, 61-120: Duration in Minutes (minus 60), 120-254: Duration in Hours (minus 120), 255: Indefinite Duration"
+      selector:
+        number:
+          min: 0
+          max: 255
+variables:
+  device_str: !input notification_device
+  device_ieee: "{{ (device_attr((device_str), 'identifiers')|list).0.1 }}"
+mode: single
+sequence:
+  - service: zha.issue_zigbee_cluster_command
+    data:
+      ieee: "{{ device_ieee }}"
+      endpoint_id: 1
+      cluster_id: 64561
+      cluster_type: in
+      command: 1
+      command_type: server
+      args:
+        - !input LEDEffectType
+        - !input LEDEffectColor
+        - !input LEDEffectLevel
+        - !input LEDEffectDuration
+      manufacturer: "4655"
