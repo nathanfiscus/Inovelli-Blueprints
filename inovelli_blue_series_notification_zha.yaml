@@ -1,5 +1,5 @@
 blueprint:
-  name: Inovelli Blue Series Notification
+  name: Inovelli Blue Series Notification (ZHA)
   description: >-
     A script that sends an LED bar notification to an Inovelli Blue Series device (VZM31-SN, VZM35-SN).
   domain: script
