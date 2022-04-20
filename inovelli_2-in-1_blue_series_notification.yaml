@@ -11,7 +11,6 @@ blueprint:
         device:
           integration: zha
           manufacturer: Inovelli
-          model: VZM31-SN
     LEDEffectType:
       name: LED Effect Type
       description: "0: Off, 1: Solid, 2: Fast Blink, 3: Slow Blink, 4: Pulse, 5: Chase, 6: Open/Close, 7: Small to Big, 255: Clear"
