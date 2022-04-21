@@ -44,11 +44,11 @@ variables:
   min_channel: "{{ max(LEDEffectColor[0],LEDEffectColor[1],LEDEffectColor[2]) }}"
   hue: >
     {% if max_channel == LEDEffectColor[0] %}
-      {{ (LEDEffectColor[1] - LEDEffectColor[2] / (max_channel - min_channel)) * 60 }}
+      {{ ((LEDEffectColor[1] - LEDEffectColor[2]) / (max_channel - min_channel)) * 60 }}
     {% elseif max_channel == LEDEffectColor[1] %}
-      {{ (2 + (LEDEffectColor[2] - LEDEffectColor[0] / (max_channel - min_channel))) * 60 }}
+      {{ ((2 + LEDEffectColor[2] - LEDEffectColor[0]) / (max_channel - min_channel)) * 60 }}
     {% else %}
-      {{ (4 + (LEDEffectColor[0] - LEDEffectColor[2] / (max_channel - min_channel)) * 60 }}
+      {{ ((4 + LEDEffectColor[0] - LEDEffectColor[2]) / (max_channel - min_channel)) * 60 }}
     {% endif %}
   hue_final: >
     {% if hue < 0 %}
