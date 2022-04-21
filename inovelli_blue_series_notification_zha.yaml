@@ -13,11 +13,28 @@ blueprint:
           manufacturer: Inovelli
     LEDEffectType:
       name: LED Effect Type
-      description: "0: Off, 1: Solid, 2: Fast Blink, 3: Slow Blink, 4: Pulse, 5: Chase, 6: Open/Close, 7: Small to Big, 255: Clear"
+      description: "Animation pattern to use for the notification."
       selector:
-        number:
-          min: 0
-          max: 255
+        select:
+          options:
+            - label: "Off"
+              value: 0
+            - label: "Solid"
+              value: 1
+            - label: "Fast Blink"
+              value: 2
+            - label: "Slow Blink"
+              value: 3
+            - label: "Pulse"
+              value: 4
+            - label: "Chase"
+              value: 5
+            - label: "Open/Close"
+              value: 6
+            - label: "Small to Big"
+              value: 7
+            - label: "Clear"
+              value: 255
     LEDEffectColor:
       name: LED Effect Color
       description: "0:-254: Hue based on Color Wheel, 255: White"
