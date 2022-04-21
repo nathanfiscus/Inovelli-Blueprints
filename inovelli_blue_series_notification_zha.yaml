@@ -68,7 +68,7 @@ sequence:
       command_type: server
       args:
         - !input LEDEffectType
-        - !input hue_final
+        - {{ hue_final }}
         - !input LEDEffectLevel
         - !input LEDEffectDuration
       manufacturer: "4655"
