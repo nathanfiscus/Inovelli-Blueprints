@@ -70,7 +70,7 @@ sequence:
       command: 1
       command_type: server
       args:
-        - !input LEDEffectType
+        - "{{ LEDEffectType |int }}"
         - !input LEDEffectColor
         - !input LEDEffectLevel
         - !input LEDEffectDuration
