@@ -61,6 +61,7 @@ blueprint:
 variables:
   device_str: !input notification_device
   device_ieee: "{{ (device_attr((device_str), 'identifiers')|list).0.1 }}"
+  led_effect: !input LEDEffectType
 mode: single
 sequence:
   - service: zha.issue_zigbee_cluster_command
@@ -72,7 +73,7 @@ sequence:
       command: 1
       command_type: server
       args:
-        - "{{ LEDEffectType |int }}"
+        - "{{ led_effect |int }}"
         - !input LEDEffectColor
         - !input LEDEffectLevel
         - !input LEDEffectDuration
