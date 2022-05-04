@@ -19,8 +19,8 @@ blueprint:
           mode: "dropdown"
           multiple: false
           options:
-            - label: "Off"
-              value: 0
+            - value: 0
+              label: "Off"
             - label: "Solid"
               value: 1
             - label: "Fast Blink"
