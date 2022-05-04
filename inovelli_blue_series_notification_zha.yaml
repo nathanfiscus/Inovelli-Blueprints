@@ -18,7 +18,7 @@ blueprint:
         select:
           options:
             - label: "Off"
-              value: 0
+              value: "0"
             - label: "Solid"
               value: 1
             - label: "Fast Blink"
