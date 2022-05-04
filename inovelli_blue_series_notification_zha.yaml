@@ -19,30 +19,6 @@ blueprint:
           options:
             - label: "Off"
               value: 0
-              
-            - label: "Solid"
-              value: 1
-              
-            - label: "Fast Blink"
-              value: 2
-              
-            - label: "Slow Blink"
-              value: 3
-              
-            - label: "Pulse"
-              value: 4
-              
-            - label: "Chase"
-              value: 5
-              
-            - label: "Open/Close"
-              value: 6
-              
-            - label: "Small to Big"
-              value: 7
-              
-            - label: "Clear"
-              value: 255
     LEDEffectColor:
       name: LED Effect Color
       description: "0:-254: Hue based on Color Wheel, 255: White"
